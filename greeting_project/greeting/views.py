@@ -11,3 +11,6 @@ def home(request):
       return render(request, 'result.html', {'name':name, 'color':color})
 
    return render(request, 'home.html')
+
+def about(request):
+    return render(request, 'greeting/about.html')
