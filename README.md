@@ -5,12 +5,14 @@ This project is a simple web application built using the Django framework. The a
 ## Instructions for Build and Use
 
 Steps to build and/or run the software:
+
 1. Install Python (version 3.10 or later recommended).
 2. Install Django (pip install django).
 3. Navigate to the project directory and start the server (python manage.py runserver).
 4. Open a browser and go to (http://127.0.0.1:8000/).
 
 Instructions for using the software:
+
 1. Open the homepage in your browser.
 2. Enter a name and favorite color in the form.
 3. Click Submit to view the dynamically generated greeting page.
@@ -19,6 +21,7 @@ Instructions for using the software:
 ## Development Environment
 
 To recreate the development environment, you need the following software and/or libraries:
+
 1. Python 3.x
 2. Django (latest version)
 3. Visual Studio Code
@@ -27,6 +30,7 @@ To recreate the development environment, you need the following software and/or 
 ## Useful Websites to Learn More
 
 I found these websites useful in developing this software:
+
 1. https://docs.djangoproject.com/
 2. https://realpython.com/tutorials/django/
 3. https://www.tutorialspoint.com/django/index.htm
@@ -34,6 +38,7 @@ I found these websites useful in developing this software:
 ## Future Work
 
 The following items I plan to fix, improve, and/or add to this project in the future:
+
 1. Add a database to store submitted user information
 2. Improve styling using advanced CSS and layout features
 3. Convert the web application into a mobile application using a web-to-mobile wrapper
