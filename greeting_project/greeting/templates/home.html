@@ -8,9 +8,11 @@
 <form method="POST">
   {% csrf_token %}
   Name: <input type="text" name="name" id="name"><br>
-  Favorite Color: <input type="text" name="color" id="color"><br>
+  Favorite Color: <input type="text" name="color" id="color" placeholder="#00AEEF"><br>
   <button type="button" onclick="sendToFlutter()">Play</button>
 </form>
+
+<p id="status" style="font-weight:bold; margin-top:10px;"></p>
 
 {% if error %}
    <p style="color:red">{{ error }}</p>
@@ -25,7 +27,6 @@ function sendToFlutter() {
   // Visible proof click fired
   document.getElementById("status").innerText = "Clicked! Payload: " + payload;
 
-  // IMPORTANT: check for the global object correctly
   if (typeof FlutterGame !== "undefined" && FlutterGame.postMessage) {
     FlutterGame.postMessage(payload);
     document.getElementById("status").innerText += " ✅ Sent to Flutter";
