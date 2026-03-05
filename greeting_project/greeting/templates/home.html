@@ -17,13 +17,17 @@
 {% endif %}
 
 <script>
-function sendToFlutter() {
+  function sendToFlutter() {
+    const name = document.getElementById("name").value || "Pilot";
+    const color = document.getElementById("color").value || "#00AEEF";
 
-  const name = document.getElementById("name").value || "Pilot";
-  const color = document.getElementById("color").value || "#00AEEF";
+    // Debug alerts (we'll remove after testing)
+    alert("Sending to Flutter: " + name + "|" + color);
 
-  if (window.FlutterGame) {
-    FlutterGame.postMessage(name + "|" + color);
+    if (window.FlutterGame && FlutterGame.postMessage) {
+      FlutterGame.postMessage(name + "|" + color);
+    } else {
+      alert("FlutterGame channel NOT found");
+    }
   }
-}
 </script>
