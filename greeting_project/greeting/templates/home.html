@@ -17,17 +17,20 @@
 {% endif %}
 
 <script>
-  function sendToFlutter() {
-    const name = document.getElementById("name").value || "Pilot";
-    const color = document.getElementById("color").value || "#00AEEF";
+function sendToFlutter() {
+  const name = document.getElementById("name").value || "Pilot";
+  const color = document.getElementById("color").value || "#00AEEF";
+  const payload = `${name}|${color}`;
 
-    // Debug alerts (we'll remove after testing)
-    alert("Sending to Flutter: " + name + "|" + color);
+  // Visible proof click fired
+  document.getElementById("status").innerText = "Clicked! Payload: " + payload;
 
-    if (window.FlutterGame && FlutterGame.postMessage) {
-      FlutterGame.postMessage(name + "|" + color);
-    } else {
-      alert("FlutterGame channel NOT found");
-    }
+  // IMPORTANT: check for the global object correctly
+  if (typeof FlutterGame !== "undefined" && FlutterGame.postMessage) {
+    FlutterGame.postMessage(payload);
+    document.getElementById("status").innerText += " ✅ Sent to Flutter";
+  } else {
+    document.getElementById("status").innerText += " ❌ FlutterGame not available";
   }
+}
 </script>
