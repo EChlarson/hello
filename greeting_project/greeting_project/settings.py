@@ -119,3 +119,6 @@ STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 X_FRAME_OPTIONS = 'ALLOWALL'
+
+MONGODB_URI = os.environ.get("MONGODB_URI")
+MONGODB_DB_NAME = "rocket_game"
