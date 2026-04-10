@@ -287,8 +287,18 @@ def player_stats(request, player_name):
             elif scores[-1] < scores[0]:
                 trend = "Declining"
 
-        line_chart = build_player_line_chart(player_name, scores)
-        distribution_chart = build_player_distribution_chart(scores)
+        line_chart = None
+        distribution_chart = None
+
+        try:
+            line_chart = build_player_line_chart(player_name, scores)
+        except Exception as e:
+            print("LINE CHART FAILED:", e)
+
+        try:
+            distribution_chart = build_player_distribution_chart(scores)
+        except Exception as e:
+            print("DIST CHART FAILED:", e)
 
         score_history = []
         for index, score in enumerate(scores):
@@ -354,8 +364,18 @@ def dashboard(request):
         average_score = round(mean(clean_scores), 2) if clean_scores else 0
         highest_score = max(clean_scores) if clean_scores else 0
 
-        top10_chart = build_dashboard_top10_chart(top_ten)
-        time_chart = build_dashboard_scores_over_time_chart(all_games)
+        top10_chart = None
+        time_chart = None
+
+        try:
+            top10_chart = build_dashboard_top10_chart(top_ten)
+        except Exception as e:
+            print("TOP10 CHART FAILED:", e)
+
+        try:
+            time_chart = build_dashboard_scores_over_time_chart(all_games)
+        except Exception as e:
+            print("TIME CHART FAILED:", e)
 
         return render(request, "dashboard.html", {
             "top_ten": top_ten,
